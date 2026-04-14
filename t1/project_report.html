@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soil Memory + Future Simulation AI - Project Report</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --ink: #1b2430;
+      --muted: #4a5a6a;
+      --line: #d9e2ec;
+      --brand: #1f4fd6;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .container {
+      max-width: 980px;
+      margin: 24px auto;
+      padding: 0 14px 28px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 10px rgba(23, 42, 69, 0.06);
+    }
+    h1, h2, h3 { margin: 0 0 10px; }
+    h1 { color: var(--brand); font-size: 28px; }
+    h2 { color: #173a8f; font-size: 21px; border-bottom: 2px solid #e9efff; padding-bottom: 6px; }
+    h3 { color: #214084; font-size: 17px; }
+    p { margin: 8px 0; }
+    ul { margin: 8px 0 8px 20px; padding: 0; }
+    li { margin: 5px 0; }
+    .muted { color: var(--muted); }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 16px;
+      font-size: 14px;
+    }
+    .toc a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #edf3ff;
+      color: #173a8f;
+    }
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .kpi div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fafcff;
+    }
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    @media (max-width: 760px) {
+      .meta, .kpi { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="card">
+      <h1>Soil Memory + Future Simulation AI</h1>
+      <p class="muted"><strong>Comprehensive Project Report</strong></p>
+      <div class="meta">
+        <div><strong>Project Type:</strong> Multi-Source Agricultural Intelligence System</div>
+        <div><strong>Implementation:</strong> Jupyter Notebook + FastAPI Web Application</div>
+        <div><strong>Domain:</strong> Smart Agriculture / Decision Intelligence</div>
+        <div><strong>Primary Goal:</strong> Sustainable and profitable crop planning</div>
+      </div>
+    </section>
+
+    <section class="card toc">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#illustrations">1. List of Illustrations</a></li>
+        <li><a href="#abstract">2. Abstract</a></li>
+        <li><a href="#introduction">3. Introduction</a></li>
+        <li><a href="#objectives">4. Objectives of the Study</a></li>
+        <li><a href="#problem">5. Problem Statement</a></li>
+        <li><a href="#methodology">6. Methodology</a></li>
+        <li><a href="#analysis">7. Data Analysis &amp; Interpretation</a></li>
+        <li><a href="#results">8. Discussion and Results</a></li>
+        <li><a href="#conclusion">9. Conclusion</a></li>
+        <li><a href="#recommendations">10. Recommendations &amp; Suggestions</a></li>
+      </ul>
+    </section>
+
+    <section class="card" id="illustrations">
+      <h2>1. List of Illustrations</h2>
+      <table>
+        <tr><th>Figure/Table ID</th><th>Title</th><th>Description</th></tr>
+        <tr><td>Figure 1</td><td>System Architecture</td><td>Flow from data ingestion to multi-model simulation scoring.</td></tr>
+        <tr><td>Figure 2</td><td>Crop Recommendation Pipeline</td><td>Feature pipeline for NPK + weather based crop classification.</td></tr>
+        <tr><td>Figure 3</td><td>Soil Memory Engine Logic</td><td>Crop sequence-based repetition risk and soil stress index.</td></tr>
+        <tr><td>Figure 4</td><td>Price Model Feature Graph</td><td>Temporal and market-based features including min/max spread.</td></tr>
+        <tr><td>Figure 5</td><td>Web App Mini-Tab Interface</td><td>Dashboard, simulator, and API views in a single-page mini application.</td></tr>
+        <tr><td>Table 1</td><td>Dataset Inventory</td><td>Summary of all integrated Kaggle datasets and use cases.</td></tr>
+        <tr><td>Table 2</td><td>Model Performance Snapshot</td><td>Accuracy and regression quality metrics by module.</td></tr>
+      </table>
+    </section>
+
+    <section class="card" id="abstract">
+      <h2>2. Abstract</h2>
+      <p>
+        This project presents a multi-source agricultural decision intelligence framework called
+        <strong>Soil Memory + Future Simulation AI</strong>. The solution integrates five core
+        modeling layers: crop recommendation, soil memory risk analysis, yield estimation,
+        market price prediction, and fertilizer recommendation. Instead of using a single dataset
+        and model, the framework combines multiple real-world Kaggle datasets and performs
+        schema standardization, feature harmonization, and model-specific preprocessing.
+      </p>
+      <p>
+        The final system produces a ranked list of crop plans for a given farm context by
+        jointly optimizing agronomic suitability, predicted yield, expected market price, and
+        long-term soil sustainability. The prototype is implemented in both notebook form for
+        experimentation and a FastAPI-based web application for practical usage and demo.
+      </p>
+    </section>
+
+    <section class="card" id="introduction">
+      <h2>3. Introduction</h2>
+      <p>
+        Traditional crop selection decisions are often made using isolated indicators such as
+        nutrient levels or historical habits. This approach can lead to reduced profitability,
+        overuse of soil nutrients, and poor adaptation to changing climate and market signals.
+        Modern precision agriculture requires integrated intelligence across soil chemistry,
+        historical crop patterns, expected productivity, and economic outcomes.
+      </p>
+      <p>
+        The developed system addresses this need by combining data-driven learning and domain
+        logic into one end-to-end pipeline. It supports both educational understanding and
+        practical decision support through transparent model outputs and a clean interactive UI.
+      </p>
+    </section>
+
+    <section class="card" id="objectives">
+      <h2>4. Objectives of the Study</h2>
+      <ul>
+        <li>Build a reliable crop recommendation engine from NPK and climate variables.</li>
+        <li>Design a soil memory mechanism to account for historical crop repetition effects.</li>
+        <li>Predict expected crop yield under location and season context.</li>
+        <li>Forecast market behavior to estimate likely crop selling price.</li>
+        <li>Recommend fertilizer strategies for post-harvest nutrient balancing.</li>
+        <li>Create a unified simulation score to rank crop plans for real decision support.</li>
+        <li>Deploy the complete solution in a browser-based mini-application.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="problem">
+      <h2>5. Problem Statement</h2>
+      <p>
+        Farmers and planners need a decision framework that does not only answer
+        <em>“Which crop can grow?”</em> but also answers:
+      </p>
+      <ul>
+        <li>Will the crop maintain long-term soil health?</li>
+        <li>What yield can be expected under current conditions?</li>
+        <li>Will market pricing make the crop economically viable?</li>
+        <li>What fertilizer intervention is needed after selecting that crop?</li>
+      </ul>
+      <p>
+        Existing single-model tools typically miss one or more of these dimensions.
+        Hence, there is a need for a comprehensive multi-factor simulation system.
+      </p>
+    </section>
+
+    <section class="card" id="methodology">
+      <h2>6. Methodology</h2>
+      <h3>6.1 Data Sources</h3>
+      <table>
+        <tr><th>Dataset File</th><th>Role in System</th><th>Main Fields Used</th></tr>
+        <tr><td>crop_recommendation.csv</td><td>Core crop classification</td><td>N, P, K, temperature, humidity, pH, rainfall, label</td></tr>
+        <tr><td>crops_npk.csv</td><td>Auxiliary nutrient-crop context</td><td>Nitrogen, Phosphorus, Potassium, weather variables, crop</td></tr>
+        <tr><td>weather.csv</td><td>Soil memory history context</td><td>State, District, Crop, Year/Season, yield-related columns</td></tr>
+        <tr><td>crop_yield.csv</td><td>Yield modeling</td><td>State, District, Crop, Year, Area, Production, Yield</td></tr>
+        <tr><td>market.csv</td><td>Price forecasting</td><td>Commodity, location, arrival_date, min/max/modal price</td></tr>
+        <tr><td>fertilizer.csv</td><td>Fertilizer recommendation</td><td>Soil profile, crop context, recommended_fertilizer</td></tr>
+      </table>
+
+      <h3>6.2 Data Preprocessing</h3>
+      <ul>
+        <li>Column names normalized to lowercase underscore format.</li>
+        <li>Categorical text cleaned with trim and lowercase standardization.</li>
+        <li>Numeric coercion applied to nutrient, weather, and price fields.</li>
+        <li>Missing-value handling through imputation in model pipelines.</li>
+        <li>Feature extraction from dates: year, month, day, and price spread.</li>
+      </ul>
+
+      <h3>6.3 Modeling Strategy</h3>
+      <ul>
+        <li><strong>Crop Model:</strong> RandomForestClassifier with scaled numeric agronomic inputs.</li>
+        <li><strong>Soil Memory Engine:</strong> district-level crop sequence weighting using lag features.</li>
+        <li><strong>Yield Model:</strong> RandomForestRegressor on mixed numeric + categorical features.</li>
+        <li><strong>Price Model:</strong> RandomForestRegressor with temporal + market + price spread signals.</li>
+        <li><strong>Fertilizer Model:</strong> RandomForestClassifier for recommendation classes.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="analysis">
+      <h2>7. Data Analysis &amp; Interpretation</h2>
+      <h3>7.1 Data Characteristics</h3>
+      <ul>
+        <li>Crop recommendation data is balanced across crop classes, ideal for supervised classification.</li>
+        <li>Yield data includes long-term regional trends useful for productivity modeling.</li>
+        <li>Market data shows strong relation between modal and min/max prices.</li>
+        <li>Fertilizer dataset has rich contextual attributes enabling good classification performance.</li>
+      </ul>
+
+      <h3>7.2 Feature Interpretation</h3>
+      <ul>
+        <li>NPK + pH + rainfall determine biological suitability in crop model.</li>
+        <li>Lagged crop repetition captures degradation risk patterns in soil memory.</li>
+        <li>Price spread captures market volatility and improves modal price fit.</li>
+        <li>Season and region contextualize both yield and price outcomes.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="results">
+      <h2>8. Discussion and Results</h2>
+      <p>
+        The integrated system demonstrates the practical value of combining agronomy, historical
+        behavior, and market intelligence. Individual models perform different roles and are
+        intentionally combined at simulation stage instead of forcing one monolithic model.
+      </p>
+
+      <div class="kpi">
+        <div><strong>Crop Recommendation</strong><br/>High classification strength after core-dataset optimization.</div>
+        <div><strong>Yield Prediction</strong><br/>Strong regression fit with low error in observed tests.</div>
+        <div><strong>Price Forecasting</strong><br/>Improved after adding min/max/day/spread features.</div>
+        <div><strong>Fertilizer Recommendation</strong><br/>High class-level performance suitable for advisory.</div>
+      </div>
+
+      <h3>8.1 Combined Simulation Output</h3>
+      <p>
+        Final recommendations are generated by ranking candidate crops through a weighted score
+        that includes crop suitability confidence, predicted yield, predicted market price, and
+        soil memory risk penalty. This allows decision-makers to compare options rather than
+        receiving a single rigid recommendation.
+      </p>
+    </section>
+
+    <section class="card" id="conclusion">
+      <h2>9. Conclusion</h2>
+      <p>
+        The project successfully delivers a complete multi-source AI framework for agricultural
+        decision support. It goes beyond basic crop recommendation by incorporating sustainability
+        (soil memory), productivity (yield), economics (market price), and intervention planning
+        (fertilizer recommendation). The resulting system is technically strong, demo-ready, and
+        aligned with real-world smart farming needs.
+      </p>
+      <p>
+        The dual implementation (notebook + API web app) ensures both research transparency and
+        practical usability.
+      </p>
+    </section>
+
+    <section class="card" id="recommendations">
+      <h2>10. Recommendations &amp; Suggestions</h2>
+      <ul>
+        <li>Adopt time-based train/test splits for market forecasting to simulate real future prediction.</li>
+        <li>Add district-level weather forecast APIs for forward seasonal simulation.</li>
+        <li>Introduce explainability outputs (feature importance and SHAP summaries).</li>
+        <li>Calibrate simulation score weights with domain experts and field validation.</li>
+        <li>Integrate satellite indices (NDVI, moisture proxies) for stronger spatiotemporal insights.</li>
+        <li>Add downloadable PDF report export from the web UI for end-user adoption.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      End of Report - Soil Memory + Future Simulation AI
+    </div>
+  </div>
+</body>
+</html>
